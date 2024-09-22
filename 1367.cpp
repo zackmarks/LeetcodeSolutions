@@ -33,21 +33,12 @@ class Solution {
 private:
     bool helper(ListNode* head, TreeNode* root, ListNode* falseHead){
         if(head == NULL){ 
-            cout << "A\n";
             return true;
         }
         if(root == NULL){
-            cout << "B\n";
             return false;
         }
-        // if(head->val != root->val) {
-        //     head = falseHead;
-        // }else{//same head after repetition. look at next
-
-
-        // }
             
-        cout << "moving on\n";
         if(helper(head->next, root->left, falseHead) || helper(head->next, root->right, falseHead)) return true;
         if(head->val == root->val){
             if (helper(falseHead->next->next, root->left, falseHead) || helper(falseHead->next->next, root->right, falseHead)) return true;
